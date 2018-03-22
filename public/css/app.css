@@ -1,0 +1,264 @@
+/* ==========================================================================
+   Base colors
+   ========================================================================== */
+
+/* ==========================================================================
+   Light colors
+   ========================================================================== */
+
+/* ==========================================================================
+   Dark colors
+   ========================================================================== */
+
+body {
+  background: #EEF2F5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   Theme
+   ========================================================================== */
+
+/* Night body color */
+
+.night-body {
+  background: #212224 !important;
+}
+
+/* Night element color */
+
+.night-bg {
+  background: #1B1C1D !important;
+}
+
+/* Night font color */
+
+.night-font {
+  color: #FFFFFF !important;
+}
+
+.night-font a:hover {
+  color: #B1B4B5 !important;
+}
+
+/* Night shadow for cards */
+
+.night-shadow {
+  -webkit-box-shadow: 0 1px 3px 0 #212224, 0 0 0 1px #212224 !important;
+  box-shadow: 0 1px 3px 0 #212224, 0 0 0 1px #212224 !important;
+}
+
+/* ==========================================================================
+   Preloader
+   ========================================================================== */
+
+/* Prevent scrolling while loading */
+
+.loading {
+  overflow: hidden;
+}
+
+/* Container */
+
+#preloader {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 50%;
+  margin: 0 -1rem -1rem 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 999;
+  /* Left & right columns */
+  /* Slide left animation */
+  /* Slide right animation */
+  /* Animated spinner */
+}
+
+#preloader #leftload,
+#preloader #rightload {
+  width: 50%;
+  background: #1B1C1D;
+}
+
+#preloader .leftload {
+  -webkit-animation: leftload .22s linear 1 forwards;
+          animation: leftload .22s linear 1 forwards;
+}
+
+@-webkit-keyframes leftload {
+  from {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+
+  to {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+}
+
+@keyframes leftload {
+  from {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+
+  to {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+}
+
+#preloader .rightload {
+  -webkit-animation: rightload .22s linear 1 forwards;
+          animation: rightload .22s linear 1 forwards;
+}
+
+@-webkit-keyframes rightload {
+  from {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+
+  to {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+}
+
+@keyframes rightload {
+  from {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+
+  to {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+}
+
+#preloader #spinner {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 47.7%;
+  left: 47.7%;
+  border-radius: 50%;
+  border: 5px solid transparent;
+  border-left: 4px solid #E74C3C;
+  border-right: 4px solid #E74C3C;
+  -webkit-animation: clockwise 1s linear infinite;
+          animation: clockwise 1s linear infinite;
+}
+
+@-webkit-keyframes clockwise {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes clockwise {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+/* Secondary content */
+
+.secondary {
+  color: #B1B4B5;
+}
+
+/* Tertiary content */
+
+.tertiary {
+  font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   Posts
+   ========================================================================== */
+
+.ui.horizontal.segments.posts {
+  /* Score segment */
+  /* Title segment */
+}
+
+.ui.horizontal.segments.posts .left-segment {
+  -webkit-box-flex: 0;
+  flex: 0 0 auto;
+  -ms-flex: 0 0 0px;
+  /* Move reveal bg-color */
+}
+
+.ui.horizontal.segments.posts .left-segment .ui.move.reveal .visible.content {
+  background: #FFFFFF;
+  /* Score statistic color */
+}
+
+.ui.horizontal.segments.posts .left-segment .ui.move.reveal .visible.content .ui.red.mini.statistic .value {
+  color: #FF695E;
+}
+
+.ui.horizontal.segments.posts .right-segment {
+  /* Day title */
+  /* Night title */
+}
+
+.ui.horizontal.segments.posts .right-segment .post-title,
+.ui.horizontal.segments.posts .right-segment .post-title:hover {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #1B1C1D;
+}
+
+.ui.horizontal.segments.posts .right-segment .night-title,
+.ui.horizontal.segments.posts .right-segment .night-title:hover {
+  color: white;
+}
+
+/* ==========================================================================
+   Comments
+   ========================================================================== */
+
+/* Quotation */
+
+blockquote {
+  border-left: 4px solid #2C3E50;
+  font-style: italic;
+  padding-left: 10px;
+}
+
+/* ==========================================================================
+   Modals
+   ========================================================================== */
+
+/* Delete modal */
+
+.ui.mini.modal.delete_modal {
+  background: transparent;
+}
+
+.ui.mini.modal.delete_modal .header {
+  color: #FFFFFF;
+  background: #E74C3C;
+}
+

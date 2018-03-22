@@ -1,0 +1,183 @@
+@import "partials/colors";
+@import "partials/typography";
+
+body {
+  background: $bg-color;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   Theme
+   ========================================================================== */
+
+/* Night body color */
+.night-body {
+  background: #212224!important;
+}
+
+/* Night element color */
+.night-bg {  
+  background: $black!important;
+}
+
+/* Night font color */
+.night-font {
+  color: $white!important;  
+}
+
+.night-font a:hover {
+  color: $light-grey!important;
+}
+
+/* Night shadow for cards */
+.night-shadow {
+  -webkit-box-shadow: 0 1px 3px 0 #212224, 0 0 0 1px #212224!important;
+  box-shadow: 0 1px 3px 0 #212224, 0 0 0 1px #212224!important;
+}
+
+/* ==========================================================================
+   Preloader
+   ========================================================================== */
+
+/* Prevent scrolling while loading */
+.loading {
+  overflow: hidden;
+}
+
+/* Container */
+#preloader {
+  width: 100%;
+  height: 100%;
+  position: fixed; 
+  top: 50%; 
+  margin: 0 -1rem -1rem 0;
+  transform: translateY(-50%);    
+  z-index: 999;
+
+  /* Left & right columns */
+  #leftload, #rightload {
+    width: 50%;        
+    background: $black;
+  }
+  
+  /* Slide left animation */
+  .leftload {
+    animation: leftload .22s linear 1 forwards;
+    
+    @keyframes leftload {
+      from { transform: translateX(0) }
+      to { transform: translateX(-100%); }
+    }
+  }
+
+  /* Slide right animation */
+  .rightload {
+    animation: rightload .22s linear 1 forwards; 
+
+    @keyframes rightload {
+      from { transform: translateX(0) }
+      to { transform: translateX(100%); }
+    }
+  }
+
+  /* Animated spinner */
+  #spinner {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 47.7%;
+    left: 47.7%;               
+    border-radius: 50%;    
+    border: 5px solid transparent;
+    border-left: 4px solid $red;    
+    border-right: 4px solid $red;                 
+    animation: clockwise 1s linear infinite;
+
+    @keyframes clockwise {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }      
+    }   
+  }  
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+/* Secondary content */
+.secondary {
+  color: $light-grey;  
+}
+
+/* Tertiary content */
+.tertiary {
+  font-size: $small;
+}
+
+/* ==========================================================================
+   Posts
+   ========================================================================== */
+
+.ui.horizontal.segments.posts { 
+  /* Score segment */
+  .left-segment {    
+    -webkit-box-flex: 0;
+    flex: 0 0 auto;
+    -ms-flex: 0 0 0px;
+
+    /* Move reveal bg-color */
+    .ui.move.reveal {      
+      .visible.content {
+        background: $white;
+
+        /* Score statistic color */ 
+        .ui.red.mini.statistic {
+          .value {
+            color: #FF695E;
+          }
+        }
+      }            
+    }
+  } 
+
+  /* Title segment */
+  .right-segment {
+
+    /* Day title */
+    .post-title, .post-title:hover {
+      font-weight: $bold;
+      font-size: $large;
+      color: $black;
+    }
+
+    /* Night title */
+    .night-title, .night-title:hover {
+      color: white;
+    }
+  }
+}
+
+/* ==========================================================================
+   Comments
+   ========================================================================== */
+   
+/* Quotation */
+blockquote {
+  border-left: 4px solid $dark-blue;
+  font-style: italic;  
+  padding-left: 10px;
+}
+
+/* ==========================================================================
+   Modals
+   ========================================================================== */
+
+/* Delete modal */
+.ui.mini.modal.delete_modal {
+  background: transparent;
+
+  .header {
+    color: $white;
+    background: $red;
+  }  
+}
