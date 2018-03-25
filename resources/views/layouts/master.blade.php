@@ -22,7 +22,7 @@
     @yield('footer')
 
     {{--  Preloader  --}}
-    <div id="preloader" class="ui stackable centered aligned grid computer only" style="margin-right: 0;">
+    <div id="preloader" class="ui stackable centered aligned grid" style="margin-right: 0;">
         <div id="leftload"></div>
         <div id="spinner"></div>        
         <div id="rightload"></div>

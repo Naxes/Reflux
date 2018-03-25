@@ -28,22 +28,32 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    /* Set slug to users name */
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
 
+    /* User has many posts */
     public function post()
     {
         return $this->hasMany(Post::class);
     }
 
+    /* User has many votes */
     public function votes()
     {
         return $this->hasMany(Vote::class);
     }
 
+    /* User has many comments */
     public function comments()
     {
         return $this->hasMany(Comment::class);
     }
 
+    /* Gravatar based on users hashed email */
     public function getGravatarAttribute()
     {
         $hash = md5(strtolower(trim($this->attributes['email'])));

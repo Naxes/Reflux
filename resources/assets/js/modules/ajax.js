@@ -1,6 +1,9 @@
-/* ==========================================================================
-   Votes
-   ========================================================================== */
+/*
+|--------------------------------------------------------------------------
+| Voting
+|--------------------------------------------------------------------------
+*/
+
 $('.vote').click(function(e){    
     e.preventDefault();
     e.stopPropagation();
@@ -32,31 +35,34 @@ $('.vote').click(function(e){
     });
 });
 
-/* ==========================================================================
-   Delete post
-   ========================================================================== */
-$('.delete').click(function(e){
-    e.preventDefault();
-    e.stopPropagation();
+/*
+|--------------------------------------------------------------------------
+| Delete post
+|--------------------------------------------------------------------------
+*/
 
-    var form = $(this.form);
-    var formData = form.serializeArray(),
-        formObj = {};
+// $('.delete').click(function(e){
+//     e.preventDefault();
+//     e.stopPropagation();
 
-    /* Form data */
-    $(formData).each(function(i, val){
-        formObj[val.name] = val.value;
-    });
+//     var form = $(this.form);
+//     var formData = form.serializeArray(),
+//         formObj = {};
 
-    $.ajax({
-        type : 'POST',
-        url : form.attr('action'),
-        data : formData,
+//     /* Form data */
+//     $(formData).each(function(i, val){
+//         formObj[val.name] = val.value;
+//     });
 
-        success : function(data){
-            $('.post_' + formObj['postid']).remove();            
-            $('.ui.mini.modal').modal('hide');                      
-        }
-    });
-});
+//     $.ajax({
+//         type : 'POST',
+//         url : form.attr('action'),
+//         data : formData,
+
+//         success : function(data){
+//             $('.post_' + formObj['postid']).remove();            
+//             $('.ui.mini.modal').modal('hide');                      
+//         }
+//     });
+// });
 

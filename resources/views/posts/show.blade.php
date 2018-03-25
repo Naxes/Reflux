@@ -5,15 +5,18 @@
         <div class="sixteen wide computer sixteen wide mobile column" style="padding-top: .5rem;">
             <div class="ui segments">
                 <div class="ui horizontal segments posts">
-                    @include('partials.post')                    
+                    @include('partials.post')                   
                 </div>
                 
                 {{-- Bottom segment --}}
                 <div class="ui segment">
-                    <p class="secondary">submitted {{ $post->created_at->diffForHumans() }} by <a href="/">{{ $post->user->name }}</a></p>                    
+                    <p class="secondary">submitted {{ $post->created_at->diffForHumans() }} by <a href="/{{ $post->user->name }}">{{ $post->user->name }}</a></p>                    
                     <p>{!!$post->body!!}</p>                    
                     <a href="/posts/{{ $post->id }}" class="teal">{{ $post->comments->count() }} comments</a>
-                </div>
+                </div>                
+
+                {{--  Delete modal  --}}            
+                @include('partials.delete-post')
 
                 {{--  Comments field  --}}
                 <div class="ui clearing segment">

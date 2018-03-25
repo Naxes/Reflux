@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+<br>
 <div class="sixteen wide computer sixteen wide mobile column">
     <h3 class="ui header">Create a Post</h3>  
     <div class="ui divider"></div>          
@@ -18,7 +19,7 @@
                 </div>
                 <div class="eight wide column">
                     <div class="field">                                                
-                        <select id="tags" name="tags" multiple="" class="ui multiple search selection dropdown">
+                        <select id="tags" name="tags[]" multiple="" class="ui multiple search selection dropdown">
                             <option value="">Tag Post</option>
                             <option value="markup">HTML/XML</option>
                             <option value="css">CSS</option>

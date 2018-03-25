@@ -11,7 +11,7 @@
                             <img src="{{ $comment->user->gravatar }}" alt="avatar">
                         </a>
                         <div class="content">
-                            <a class="author">{{ $comment->user->name }}</a>
+                            <a href="/{{ $comment->user->name }}" class="author">{{ $comment->user->name }}</a>
                             <div class="metadata">
                                 <span class="date">{{ $comment->created_at->diffForHumans() }}</span>
                             </div>
@@ -31,7 +31,7 @@
                                             <img src="{{ $reply->user->gravatar }}" alt="avatar">
                                         </a>
                                         <div class="content">
-                                            <a class="author">{{ $reply->user->name }}</a>
+                                            <a href="/{{ $reply->user->name }}" class="author">{{ $reply->user->name }}</a>
                                             <div class="metadata">
                                                 <span class="date">{{ $reply->created_at->diffForHumans() }}</span>
                                             </div>

@@ -101,9 +101,12 @@ __webpack_require__(7);
 /* 2 */
 /***/ (function(module, exports) {
 
-/* ==========================================================================
-   Votes
-   ========================================================================== */
+/*
+|--------------------------------------------------------------------------
+| Voting
+|--------------------------------------------------------------------------
+*/
+
 $('.vote').click(function (e) {
     e.preventDefault();
     e.stopPropagation();
@@ -135,37 +138,46 @@ $('.vote').click(function (e) {
     });
 });
 
-/* ==========================================================================
-   Delete post
-   ========================================================================== */
-$('.delete').click(function (e) {
-    e.preventDefault();
-    e.stopPropagation();
+/*
+|--------------------------------------------------------------------------
+| Delete post
+|--------------------------------------------------------------------------
+*/
 
-    var form = $(this.form);
-    var formData = form.serializeArray(),
-        formObj = {};
+// $('.delete').click(function(e){
+//     e.preventDefault();
+//     e.stopPropagation();
 
-    /* Form data */
-    $(formData).each(function (i, val) {
-        formObj[val.name] = val.value;
-    });
+//     var form = $(this.form);
+//     var formData = form.serializeArray(),
+//         formObj = {};
 
-    $.ajax({
-        type: 'POST',
-        url: form.attr('action'),
-        data: formData,
+//     /* Form data */
+//     $(formData).each(function(i, val){
+//         formObj[val.name] = val.value;
+//     });
 
-        success: function success(data) {
-            $('.post_' + formObj['postid']).remove();
-            $('.ui.mini.modal').modal('hide');
-        }
-    });
-});
+//     $.ajax({
+//         type : 'POST',
+//         url : form.attr('action'),
+//         data : formData,
+
+//         success : function(data){
+//             $('.post_' + formObj['postid']).remove();            
+//             $('.ui.mini.modal').modal('hide');                      
+//         }
+//     });
+// });
 
 /***/ }),
 /* 3 */
 /***/ (function(module, exports) {
+
+/*
+|--------------------------------------------------------------------------
+| Dropdowns
+|--------------------------------------------------------------------------
+*/
 
 $('.ui.dropdown').dropdown();
 
@@ -179,11 +191,14 @@ $('.ui.dropdown').dropdown();
 /* 5 */
 /***/ (function(module, exports) {
 
-/* ==========================================================================
-   Preloader
-   ========================================================================== */
+/*
+|--------------------------------------------------------------------------
+| Preloader
+|--------------------------------------------------------------------------
+*/
+
 $(window).on('load', function () {
-    $('#spinner').delay(200).fadeOut().queue(function () {
+    $('#spinner').fadeOut().queue(function () {
         $('#leftload').addClass('leftload');
         $('#rightload').addClass('rightload').delay(500).queue(function () {
             $('#preloader').remove();
@@ -196,13 +211,16 @@ $(window).on('load', function () {
 /* 6 */
 /***/ (function(module, exports) {
 
-/* ==========================================================================
-   Day/Night mode
-   ========================================================================== */
+/*
+|--------------------------------------------------------------------------
+| Theme
+|--------------------------------------------------------------------------
+*/
 
 function checkTheme(theme) {
     if (theme == 1) {
         $('body').addClass('night-body');
+        $('#test_btn').attr('checked', 'checked');
         $('.ui').not('.ui.button, .ui.card').addClass('inverted');
         $('.visible.content, .ui.card').addClass('night-bg');
         $('.ui.card').addClass('night-shadow').children('.content').addClass('night-font').children().addClass('night-font');
@@ -233,6 +251,12 @@ $(document).ready(function () {
 /***/ }),
 /* 7 */
 /***/ (function(module, exports) {
+
+/*
+|--------------------------------------------------------------------------
+| TinyMCE editor
+|--------------------------------------------------------------------------
+*/
 
 tinymce.init({
     selector: '.mce_field',

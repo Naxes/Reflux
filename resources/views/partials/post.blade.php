@@ -36,15 +36,18 @@
         
         {{--  Title  --}}
         <div class="eight wide column">
-            <a class="post-title" href="/posts/{{ $post->id }}" style="position: relative; top: 10px;">{{ $post->title }}</a>                                                                                                            
-        </div>
+            <a class="post-title" href="/posts/{{ $post->id }}" style="position: relative; top: 10px;">{{ str_limit($post->title, 35) }}</a>                                                                                                            
+        </div>            
 
-        {{--  Remove button  --}}
+        {{--  Edit/Remove button  --}}
         <div class="eight wide column">                                        
-            @if ($post->user_id == auth()->id())                                   
+            @if ($post->user_id == auth()->id())                                              
                 <a class="ui icon inverted red button trash_btn delete_{{ $post->id }}" style="float:right;">
                     <i class="trash icon"></i>
-                </a>                                                                                
+                </a>
+                <a href="/posts/edit/{{ $post->id }}" class="ui icon blue button" style="float:right;">
+                    <i class="edit icon"></i>
+                </a>                                                     
             @endif                                    
         </div>
     </div>

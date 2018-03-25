@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="six wide column">
-                    <button class="ui red fluid button delete" type="button">Delete</button>    
+                    <button class="ui red fluid button delete">Delete</button>    
                 </div> 
             </div>                                       
         </form>
@@ -26,7 +26,7 @@
 <script>
 $('.delete_{{ $post->id }}').click(function(){        
     /* Show modal */
-    $('.ui.mini.modal.{{ $post->id }}')
+    $('.ui.mini.modal.delete_modal.{{ $post->id }}')
         .modal('setting', 'transition', 'vertical flip')
         .modal('show');
 
