@@ -53,7 +53,7 @@
         </div>                        
     @else
         <div class="sixteen wide column">
-            <div class="ui sticky">
+            <div class="ui sticky user-signup">
                 <a href="/register" class="ui fluid teal button">Sign up</a>
                 </br>
                 <a href="/login" class="ui fluid teal basic button">Log-in</a>

@@ -4,6 +4,9 @@
 |--------------------------------------------------------------------------
 */
 
+/**
+ * Like/Unlike
+ */
 $('.vote').click(function(e){    
     e.preventDefault();
     e.stopPropagation();
@@ -34,6 +37,11 @@ $('.vote').click(function(e){
         }
     });
 });
+
+/**
+ * Remove liked post from user profile
+ */
+
 
 /*
 |--------------------------------------------------------------------------

@@ -21,9 +21,18 @@
                     <div class="field">                                                
                         <select id="tags" name="tags[]" multiple="" class="ui multiple search selection dropdown">
                             <option value="">Tag Post</option>
-                            <option value="markup">HTML/XML</option>
-                            <option value="css">CSS</option>
-                            <option value="javascript">JavaScript</option>                                
+                            <option value="HTML/XML">HTML/XML</option>
+                            <option value="CSS">CSS</option>
+                            <option value="JavaScript">JavaScript</option>
+                            <option value="PHP">PHP</option>
+                            <option value="JSON">JSON</option>
+                            <option value="Java">Java</option>
+                            <option value="Git">Git</option>
+                            <option value="Ruby">Ruby</option>
+                            <option value="Python">Python</option>
+                            <option value="C#">C#</option>
+                            <option value="Objective-C">Objective-C</option>
+                            <option value="Perl">Perl</option>
                         </select>                                                      
                     </div>    
                 </div>   

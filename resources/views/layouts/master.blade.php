@@ -16,7 +16,7 @@
     <script src="{{ asset('js/semantic.min.js') }}"></script>
     <script src="{{ asset('js/tinymce.min.js') }}"></script>       
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
-    <title>Document</title>    
+    <title>Reflux</title>    
 </head>
 <body class="loading">
     @yield('footer')

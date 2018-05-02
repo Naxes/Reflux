@@ -19,13 +19,23 @@ class PostsController extends Controller
         $this->middleware('auth')->except('index', 'show');
     }
 
-    public function index()
-    {        
-        $user = User::where('id', auth()->id())->first();                
-        $posts = Post::latest()->paginate(5);        
+    public function index(Request $request)
+    {                
+        $user = User::where('id', auth()->id())->first();        
+        $posts = Post::latest()->paginate(5);
         
-        if (!$posts->count()) {
-            abort(404);
+        $sort = $request->input('sort');
+        switch ($sort) {
+            case 'top':
+                $posts = Post::orderBy('score', 'desc')->paginate(5);
+                break;
+            case 'new':
+                $posts = Post::latest()->paginate(5);
+                break;
+            case 'old':
+                $posts = Post::orderBy('created_at', 'asc')->paginate(5);
+                break;
+            default:            
         }
 
         return view('posts.index', compact('user', 'posts', 'tags'));

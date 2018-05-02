@@ -19,7 +19,7 @@ Route::get('/edit/{user}', 'UsersController@edit');
 Route::patch('/edit/{user}', 'UsersController@update');
 
 /* Posts */
-Route::get('/', 'PostsController@index');
+Route::get('/', 'PostsController@index')->name('home');
 Route::get('/posts/create', 'PostsController@create');
 Route::get('/posts/{post}', 'PostsController@show');
 Route::get('/posts/edit/{post}', 'PostsController@edit');

@@ -127,7 +127,7 @@ body {
 */
 
 /* Lets menu dropdowns overlay the card */
-.ui.sticky.user-info {
+.ui.sticky.user-info, .ui.sticky.user-signup {
   z-index: 1;
 }
 

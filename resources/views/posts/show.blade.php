@@ -5,7 +5,7 @@
         <div class="sixteen wide computer sixteen wide mobile column" style="padding-top: .5rem;">
             <div class="ui segments">
                 <div class="ui horizontal segments posts">
-                    @include('partials.post')                   
+                    @include('partials.post-details')                   
                 </div>
                 
                 {{-- Bottom segment --}}
@@ -19,7 +19,7 @@
                 @include('partials.delete-post')
 
                 {{--  Comments field  --}}
-                <div class="ui clearing segment">
+                <div class="ui clearing segment">                    
                     @if (Auth::check())
                         <form action="/posts/{{ $post->id }}/comments" method="post" id="comment_form" class="ui form">
                             @csrf
