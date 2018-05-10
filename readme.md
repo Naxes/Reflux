@@ -150,7 +150,7 @@ This structure allows for compartmentalisation of components while the productio
 ```
 npm run watch --watch-poll
 ```
-Whenever changes are made to these asset input files specified in the mix file, said changes are reflected in the output public files.
+Whenever changes are made to these asset input files, said changes are reflected in the output public files.
 
 ## Database
 
