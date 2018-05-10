@@ -30,7 +30,7 @@ In essence, the create method displays the form and the store method creates a n
 ## Model, View, Controller
 ### Models
 
-Models showcase the projects database tables and any associations drawn between them. These refer to instances such as one-to-one or one-to-many relationships, for instance. They are located within the root of the app folder. For example:
+Models showcase the projects database tables and any associations drawn between them. These refer to instances such as one-to-one or one-to-many relationships, for example. They are located within the root of the app folder. For example:
 ```
 app > User.php
 ```
