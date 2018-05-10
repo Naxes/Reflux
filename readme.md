@@ -12,7 +12,7 @@ The following instructions outline the structure of the project for marking purp
 
 Running the project locally requires some meticulous setup if you do not already have Laravel installed on your machine. Such steps will not be covered here. If you do have it setup, feel free to run the project that way! Otherwise, the project is hosted via AWS at the following URL:
 
-[www.refluxapp.net](http://www.refluxapp.net)
+**URL:**[https://refluxapp.net](https://refluxapp.net)
 
 ## Routes
 
@@ -258,6 +258,22 @@ This migrates the tables for the first time. For any subsequent updates to the c
 container_commands:
     01initdb:
         command: "php artisan migrate:refresh --seed"
+```
+
+### Redirect HTTP to HTTPs
+
+An SSL certificate was acquired via the AWS Certificate Manager to enforce HTTPs. However, both HTTP and HTTPs versions of the site were navigable. Thusly, the following config file was created in EBExtensions:
+```
+files:
+    "/etc/httpd/conf.d/ssl_rewrite.conf":
+        mode: "000644"
+        owner: root
+        group: root
+        content: |
+            RewriteEngine On
+            <If "-n '%{HTTP:X-Forwarded-Proto}' && %{HTTP:X-Forwarded-Proto} != 'https'">
+            RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
+            </If>
 ```
 
 ## Technologies
