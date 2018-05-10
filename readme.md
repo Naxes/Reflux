@@ -253,7 +253,7 @@ container_commands:
     01initdb:
         command: "php artisan migrate"
 ```
-This migrates the tables for the first time. For any subsequent updates to the code that are re-uploaded to AWS, the command was replaced to instead fresh the now existing tables, and seed the database with the dummy data encompassed by the Database Seeder:
+This migrates the tables for the first time. For any subsequent updates to the code that are re-uploaded to AWS, the command was replaced to instead refresh the tables and seed the database with the data encompassed by the Database Seeder:
 ```
 container_commands:
     01initdb:
