@@ -28,6 +28,7 @@ Route::post('/register', 'RegistrationController@store');
 In essence, the create method displays the form and the store method creates a new record in the database.
 
 ## Model, View, Controller
+
 ### Models
 
 Models showcase the projects database tables and any associations drawn between them. These refer to instances such as one-to-one or one-to-many relationships, for example. They are located within the root of the app folder. For example:
@@ -121,7 +122,9 @@ class RegistrationController extends Controller
 The above represents the create and store methods referenced in the routes file shown before. Create simply returns a view, and is executed when a GET request is sent. Store creates a new user record if all stipulations are satisfied, and is executed when a POST request is sent. This also illustrates how records are validated and created using the Eloquent ORM. Additionally, the constructor method that precedes these showcases how the project uses middleware to gate or allow access to these methods based on the user type (guest or authenticated).
 
 ## Database
+
 ### Establishing a Connection
+
 The database the project uses when tested locally is defined within the projects environment file located in the root of the project as .env
 ```
 DB_CONNECTION=mysql
@@ -134,12 +137,14 @@ DB_PASSWORD=root
 The above is the vital data encompassed by this file that defines the database to be used.
 
 ### Creating Migrations
+
 Migrations refer to the projects database table schema. For each table there is an associated schema that defines their columns. They can be created using the PHP artisan command line tools:
 ```
 php artisan make:migration create_users_table
 ```
 
 ### Migrating Tables
+
 When created, migrations are located:
 ```
 database > migrations
@@ -150,6 +155,7 @@ php artisan migrate
 ```
 
 ### Seeding
+
 During development, the database was populated with dummy data. This was done using the Database Seeder class located:
 ```
 database > seeds
@@ -157,6 +163,23 @@ database > seeds
 Within, tables can be referenced and populated with data when refreshing migrated tables with the following PHP artisan command:
 ```
 php artisan migrate:refresh --seed
+```
+Take the following example representing a seeded user account:
+```
+class UsersTableSeeder extends Seeder 
+{
+    public function run() 
+    {
+        DB::table('users')->delete();        
+
+        User::create(
+        [
+            'name'      => 'TestUser',
+            'email'     => 'testuser@example.com',
+            'password'  => Hash::make('password')
+        ]);        
+    }
+}
 ```
 
 ## Unit Testing
@@ -194,6 +217,12 @@ define('RDS_DB_NAME', $_SERVER['RDS_DB_NAME']);
 ### YAML Command
 
 In order to migrate the tables to the AWS database, a YAML command was used. AWS interprets a hidden directory contained within the project structure called EBExtensions. Within this was an initialisation configuration file comprising of the YAML command:
+```
+container_commands:
+    01initdb:
+        command: "php artisan migrate"
+```
+This migrates the tables for the first time. For any subsequent updates to the code that are re-uploaded to AWS, the command was replaced to instead fresh the now existing tables, and seed the database with the dummy data encompassed by the Database Seeder:
 ```
 container_commands:
     01initdb:
