@@ -11,11 +11,11 @@
         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
         crossorigin="anonymous">
     </script>
-    <script src="{{ asset('js/semantic.min.js') }}"></script>
-    <script src="{{ asset('js/modules/validate.js') }}"></script>
+    <script src="{{ asset('js/semantic.min.js') }}"></script>    
     <title>Document</title>
 </head>
 <body>    
     @yield('content')
+    <script src="{{ asset('js/validate.js') }}"></script>
 </body>
 </html>

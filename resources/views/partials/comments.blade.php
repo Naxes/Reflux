@@ -4,7 +4,7 @@
         <div class="ui divider"></div>
         <div class="ui segment">
             <div class="ui grid" id="comments_section" style="padding: 10px;">
-                <div class="eight wide column">
+                <div class="eight wide computer sixteen wide mobile column">
                     <div class="ui comments">            
                         @foreach ($comments as $comment)
                             <div class="comment">
@@ -18,7 +18,11 @@
                                     </div>
                                     <div class="text">{!!$comment->comment!!}</div>
                                     <div class="actions">
-                                        <a class="reply_button_{{ $comment->id }}">Reply</a>
+                                        @if (Auth::check())
+                                            <a class="reply_button_{{ $comment->id }}">Reply</a>
+                                        @else
+                                            <a href="/login">Reply</a>
+                                        @endif                                        
                                     </div>
                                     <form action="/posts/{{ $post->id }}/comments" method="post" class="ui reply form reply_form_{{ $comment->id }}" style="display:none;">
                                         @csrf
@@ -51,7 +55,11 @@
                                                     </div>
                                                     <div class="text">{!!$reply->comment!!}</div>
                                                     <div class="actions">
-                                                        <a class="reply_button_{{ $reply->id }}">Reply</a>
+                                                        @if (Auth::check())
+                                                            <a class="reply_button_{{ $reply->id }}">Reply</a>
+                                                        @else
+                                                            <a href="/login">Reply</a>
+                                                        @endif
                                                     </div>
                                                     <form action="/posts/{{ $post->id }}/comments" method="post" class="ui reply form reply_form_{{ $reply->id }}" style="display:none;">
                                                         @csrf

@@ -11,7 +11,7 @@
                 <div class="ui divider"></div>  
                 <h2 class="ui header teal centered">Log-in to your account</h2>
                 <div class="ui segment raised">
-                    <form action="/login" method="post" class="ui form">
+                    <form action="/login" method="post" class="ui form login-form">
                         @csrf
 
                         <div class="field">                        

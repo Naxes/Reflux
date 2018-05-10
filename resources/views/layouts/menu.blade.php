@@ -48,13 +48,7 @@
                         <label>Night mode</label>
                     </div>                            
                 </div>   
-            </div>
-            <a href="/register" class="ui icon item">
-                <i class="user plus icon"></i>
-            </a>            
-            <a href="/login" class="ui icon item">
-                <i class="sign in alternate icon"></i>
-            </a>
+            </div>            
         @endif                   
     </div>
 </div>

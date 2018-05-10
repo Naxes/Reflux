@@ -121,6 +121,37 @@ class RegistrationController extends Controller
 ```
 The above represents the create and store methods referenced in the routes file shown before. Create simply returns a view, and is executed when a GET request is sent. Store creates a new user record if all stipulations are satisfied, and is executed when a POST request is sent. This also illustrates how records are validated and created using the Eloquent ORM. Additionally, the constructor method that precedes these showcases how the project uses middleware to gate or allow access to these methods based on the user type (guest or authenticated).
 
+## Assets
+
+### JavaScript
+The projects segmented JavaScript implementations are located:
+```
+resources > assets > js
+```
+
+### Sass
+The projects main and partial Sass files are located:
+```
+resources > assets > sass
+```
+
+### Compiling Assets
+
+In both the cases of the aforementioned, JavaScript and Sass, each main file is comprised of many sub-components that, in production, are merged into a singular file. The precursor to this, is specifying an input and output file for each within the mix file located in the root of the project as webpack.mix.js:
+```
+mix.js('resources/assets/js/app.js', 'public/js')
+   .sass('resources/assets/sass/app.scss', 'public/css');
+```
+The above is the contents of this file. Both the main JavaScript and Sass files located in the assets folder are the input files, while the output files are located:
+```
+public > js OR css
+```
+This structure allows for compartmentalisation of components while the production files appear as a single file. This is done by watching for changes in either input file via the following NPM command:
+```
+npm run watch --watch-poll
+```
+Whenever changes are made to these asset input files specified in the mix file, said changes are reflected in the output public files.
+
 ## Database
 
 ### Establishing a Connection

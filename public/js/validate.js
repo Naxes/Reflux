@@ -1,12 +1,12 @@
 /*
 |--------------------------------------------------------------------------
-| Validation
+| Auth Validation
 |--------------------------------------------------------------------------
 */
 
 /* Registration Form */
 $(document).ready(function(){
-  $('.ui.form')
+  $('.register-form')
     .form({
       fields: {
         name: {
@@ -54,6 +54,35 @@ $(document).ready(function(){
             }          
           ]
         },    
+      }
+    })
+  ;
+});
+
+/* Login Form */
+$(document).ready(function(){
+  $('.login-form')
+    .form({
+      fields: {
+        name: {
+          identifier: 'name',
+          rules: [
+            {
+              type   : 'empty',
+              prompt : 'Please enter a username'
+            }
+          ]
+        },
+                  
+        password: {
+          identifier: 'password',
+          rules: [
+            {
+              type   : 'empty',
+              prompt : 'Please enter a password'
+            }            
+          ]
+        }           
       }
     })
   ;
