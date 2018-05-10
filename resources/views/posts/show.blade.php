@@ -26,7 +26,7 @@
                                                             
                             <div class="field">                        
                                 <div class="ui input">                                      
-                                    <textarea class="mce_field" name="comment" id="body"></textarea>
+                                    <textarea name="comment" id="body"></textarea>
                                 </div>                                                        
                             </div>                                                                                    
                             <button class="ui blue button right floated" type="submit">Save</button>                            
@@ -34,7 +34,7 @@
                         </form>
                     @else
                         <div class="ui warning message">
-                            <a href="/register" class="ui green button">Sign up for free</a>
+                            <a href="/register" class="ui teal button">Sign up for free</a>
                             <b>to contribute to the conversation.</b> Already have an account?
                             <a href="/login">Sign in to comment</a>
                         </div>

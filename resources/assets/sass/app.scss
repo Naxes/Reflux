@@ -195,16 +195,6 @@ blockquote {
 |--------------------------------------------------------------------------
 */
 
-/* Edit modal */
-.ui.mini.modal.edit_modal {
-  background: transparent;
-
-  .header {
-    color: $white;
-    background: $blue;
-  }  
-}
-
 /* Delete modal */
 .ui.mini.modal.delete_modal {
   background: transparent;

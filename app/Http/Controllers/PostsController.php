@@ -44,8 +44,12 @@ class PostsController extends Controller
     public function show(Post $post)
     {
         $user = User::where('id', $post->user_id)->first();
-        $comments = Comment::with('replies')->where('post_id', $post->id)->where('parent_id')->get();                                        
-        
+        $comments = Comment::with('replies')->where('post_id', $post->id)->where('parent_id')->get(); 
+
+        if (!$post->exists()) {
+            return redirect('/');
+        }
+
         return view('posts.show', compact('user', 'post', 'comments'));
     }
 
@@ -127,7 +131,7 @@ class PostsController extends Controller
         Post::where('id', $post->id)->where('user_id', auth()->id())->delete();
         Vote::where('post_id', $post->id)->delete();
         Tag::where('post_id', $post->id)->delete();      
-
+        
         return redirect()->back();
     }
 }

@@ -7,7 +7,7 @@
 tinymce.init({
     selector: '.mce_field',    
     menubar: false,
-    branding: false,
+    branding: false,    
     plugins: 'codesample',            
     codesample_languages: [
         {text: 'HTML/XML', value: 'markup'},        

@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+    {{-- Dynamic Content --}}
     <div class="ui grid">  
         
         {{-- Content sorting --}}

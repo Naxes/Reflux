@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 use App\User;
 use App\Post;
 use App\Vote;
 
 class UsersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except('show');
+    }
 
     public function show(Request $request, User $user)
     {
@@ -27,10 +32,11 @@ class UsersController extends Controller
         return view('profiles.show', compact('user', 'posts'));
     }
 
-    public function edit()
-    {
-        $user = User::where('id', auth()->id())->first();
-
+    public function edit(User $user)
+    {        
+        if ($user->id != auth()->id()) {
+            return redirect()->back();
+        }
         return view('profiles.edit', compact('user'));       
     }
 

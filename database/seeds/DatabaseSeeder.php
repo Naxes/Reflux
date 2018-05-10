@@ -30,17 +30,18 @@ class UsersTableSeeder extends Seeder
 
         User::create(
         [
-            'name'      => 'Naxes',
-            'email'     => 'naxes@example.com',
-            'password'  => Hash::make('tester')
+            'name'      => 'Seán',
+            'email'     => 'seanbickmore@icloud.com',
+            'password'  => Hash::make('tester'),
+            'bio'       => 'Welcome to Reflux, my fourth year Cyber Security project!'
         ]);
 
         User::create(
         [
-            'name'      => 'Sean',
-            'email'     => 'sean@example.com',
+            'name'      => 'Naxes',
+            'email'     => 'naxes@example.com',
             'password'  => Hash::make('tester')
-        ]);
+        ]);        
     }
 }
 

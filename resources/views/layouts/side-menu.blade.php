@@ -41,7 +41,7 @@
                                     <div class="item">
                                         <i class="linkify icon"></i>
                                         <div class="content">
-                                            <a href="{{ $user->url }}">{{ $user->url }}</a>
+                                            <a href="http://{{ $user->url }}" target="_blank">{{ $user->url }}</a>
                                         </div>
                                     </div>
                                 @endif                               

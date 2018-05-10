@@ -1,8 +1,15 @@
 <div class="ui top fixed menu">
-    <a href="/" class="ui icon item">
+    <a href="/" class="ui item">
         <i class="home icon"></i>
     </a>
-    <div class="right menu">                                    
+    <div class="right menu">
+        <div class="ui right aligned category search item">
+            <div class="ui transparent icon input">
+                <input class="prompt" type="text" placeholder="Search">
+                <i class="search link icon"></i>
+            </div>
+            <div class="results"></div>
+        </div>                                    
         @if (Auth::check())
             <a href="/posts/create" class="ui icon item">
                 <i class="pencil icon"></i>

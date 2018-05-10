@@ -276,17 +276,6 @@ blockquote {
 |--------------------------------------------------------------------------
 */
 
-/* Edit modal */
-
-.ui.mini.modal.edit_modal {
-  background: transparent;
-}
-
-.ui.mini.modal.edit_modal .header {
-  color: #FFFFFF;
-  background: #2185D0;
-}
-
 /* Delete modal */
 
 .ui.mini.modal.delete_modal {

@@ -28,7 +28,8 @@ $('.vote').click(function(e){
         /* Toggle button color */
         success : function(data){                        
             $(this).toggleClass('basic ' + 'blue ' + 'blue');                        
-            $('.value_' + formObj['postid']).load(' .value_' + formObj['postid']);       
+            $('.value_' + formObj['postid']).load(' .value_' + formObj['postid']);
+                            
         }.bind(this),
 
         /* Redirect to login if not authenticated */
@@ -37,11 +38,6 @@ $('.vote').click(function(e){
         }
     });
 });
-
-/**
- * Remove liked post from user profile
- */
-
 
 /*
 |--------------------------------------------------------------------------

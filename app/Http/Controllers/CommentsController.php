@@ -23,11 +23,20 @@ class CommentsController extends Controller
         ]
         );
 
-        Comment::create([
-            'user_id' => auth()->id(),
-            'post_id' => $post->id,            
-            'comment' => request('comment')
-        ]);
+        if (request('parent') != null) {
+            Comment::create([
+                'user_id'   => auth()->id(),
+                'post_id'   => $post->id,
+                'parent_id' => request('parent'),
+                'comment'   => request('comment')
+            ]);
+        } else {
+            Comment::create([
+                'user_id'   => auth()->id(),
+                'post_id'   => $post->id,                
+                'comment'   => request('comment')
+            ]);
+        }
         
         return redirect('/posts/'.$post->id);
     }

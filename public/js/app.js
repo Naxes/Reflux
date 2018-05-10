@@ -141,10 +141,6 @@ $('.vote').click(function (e) {
     });
 });
 
-/**
- * Remove liked post from user profile
- */
-
 /*
 |--------------------------------------------------------------------------
 | Delete post

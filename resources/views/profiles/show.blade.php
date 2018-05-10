@@ -24,34 +24,38 @@
                     <a href="/{{ $user->name }}?sort=comments" class="item {{ request()->input('sort') == 'comments' ? 'active' : '' }}">{{ $user->name }}'s comments</a>
                 </div>    
             </div>
-        @endif               
-        @foreach($posts as $post)
-            <div class="eight wide computer only sixteen wide mobile column post_{{ $post->id }}" style="padding-top: .5rem;">
-                <div class="ui segments">
-                    <div class="ui horizontal segments posts">
-                        @switch(request()->input('sort'))
-                            @case('likes')
-                                
-                                @break                                            
-                            @default
-                                @include('partials.post-details') 
-                        @endswitch                                              
-                    </div>
+        @endif 
+        @if ($posts->count())
+            @foreach($posts as $post)       
+                <div class="eight wide computer only sixteen wide mobile column post_{{ $post->id }}" style="padding-top: .5rem;">
+                    <div class="ui segments">
+                        <div class="ui horizontal segments posts">
+                            @switch(request()->input('sort'))
+                                @case('likes')
+                                @include('partials.post-details')
+                                    @break                                            
+                                @default
+                                    @include('partials.post-details') 
+                            @endswitch                                              
+                        </div>
 
-                    {{-- Bottom segment --}}
-                    <div class="ui segment">
-                        <span class="secondary">submitted {{ $post->created_at->diffForHumans() }} by
-                            <a href="/{{ $post->user->name }}">{{ $post->user->name }}</a>
-                        </span>
-                        </br>
-                        <a href="/posts/{{ $post->id }}">{{ $post->comments->count() }} comments</a>
+                        {{-- Bottom segment --}}
+                        <div class="ui segment">
+                            <span class="secondary">submitted {{ $post->created_at->diffForHumans() }} by
+                                <a href="/{{ $post->user->name }}">{{ $post->user->name }}</a>
+                            </span>
+                            </br>
+                            <a href="/posts/{{ $post->id }}">{{ $post->comments->count() }} comments</a>
+                        </div>
                     </div>
-                </div>
-            </div>           
+                </div>           
 
-            {{--  Delete modal  --}}            
-            @include('partials.delete-post')
-        @endforeach
+                {{--  Delete modal  --}}            
+                @include('partials.delete-post')
+            @endforeach
+        @else
+        <p>Nothing Here</p>
+        @endif                      
                    
         {{--  Pagination  --}}
         <div class="sixteen wide column">
