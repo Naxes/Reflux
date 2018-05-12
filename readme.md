@@ -10,7 +10,7 @@ The following instructions outline the structure of the project for marking purp
 
 ### Prerequisites
 
-Running the project locally requires some meticulous setup if you do not already have Laravel installed on your machine. Such steps will not be covered here. If you do have it setup, feel free to run the project that way! Otherwise, the project is hosted via AWS at the following URL:
+Running the project locally requires you to have Laravel installed on your machine. Otherwise, the project is hosted via AWS at the following URL:
 
 **URL:** [https://refluxapp.net](https://refluxapp.net)
 
