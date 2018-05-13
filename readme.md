@@ -1,8 +1,6 @@
 # Reflux
 
-Reflux is a developer-oriented web application for sharing ideas, discussing code, and inspiring others. Contextually, the idea stemmed from disatisfaction with competitive systems with respect to user experience, primarily. From a cyber security point of view, the idea provided the baseline feature-set that would allow me to effectively illustrate security implementations in order to satisfy the objective of my specialisation. 
-
-(Note: This readme is in markdown format. Read it here: [Reflux's GitHub repository](https://github.com/Naxes/Reflux))
+Reflux is a developer-oriented web application for sharing ideas, discussing code, and inspiring others. Contextually, the idea stemmed from disatisfaction with competitive systems with respect to user experience, primarily. From a cyber security point of view, the idea provided the baseline feature-set that would allow me to effectively illustrate security implementations in order to satisfy the objective of my specialisation.
 
 ## Getting Started
 
