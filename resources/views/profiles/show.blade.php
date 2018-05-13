@@ -65,8 +65,8 @@
                 @endforeach    
             @else
                 <div class="sixteen wide column">
-                        <img src="/img/Reflux Comment Icon.png" alt="No Comments Icon" class="ui tiny image centered">                    
-                        <h2 class="ui header centered">{{ Auth::user() == $user ? "No comments to show!" : "$user->name hasn't liked anything!" }}</h2> 
+                    <img src="/img/Reflux Comment Icon.png" alt="No Comments Icon" class="ui tiny image centered">                    
+                    <h2 class="ui header centered">No comments to show</h2> 
                 </div>
             @endif
 
