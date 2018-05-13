@@ -258,22 +258,6 @@ container_commands:
         command: "php artisan migrate:refresh --seed"
 ```
 
-### Redirect HTTP to HTTPs
-
-An SSL certificate was acquired via the AWS Certificate Manager to enforce HTTPs. However, both HTTP and HTTPs versions of the site were navigable. Thusly, the following config file was created in EBExtensions:
-```
-files:
-    "/etc/httpd/conf.d/ssl_rewrite.conf":
-        mode: "000644"
-        owner: root
-        group: root
-        content: |
-            RewriteEngine On
-            <If "-n '%{HTTP:X-Forwarded-Proto}' && %{HTTP:X-Forwarded-Proto} != 'https'">
-            RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
-            </If>
-```
-
 ## Technologies
 * [Laravel](https://laravel.com) - PHP Framework
 * [Semantic UI](https://semantic-ui.com) - CSS Framework
