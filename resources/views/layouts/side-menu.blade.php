@@ -34,14 +34,14 @@
                                 <div class="item">
                                     <i class="mail icon"></i>
                                     <div class="content">
-                                        <a href="mailto:{{ $user->email }}">{{ $user->email }}</a>
+                                        <a href="mailto:{{ $user->email }}">{{ str_limit($user->email, 30) }}</a>
                                     </div>
                                 </div>
                                 @if ($user->url !== null)
                                     <div class="item">
                                         <i class="linkify icon"></i>
                                         <div class="content">
-                                            <a href="http://{{ $user->url }}" target="_blank">{{ $user->url }}</a>
+                                            <a href="http://{{ $user->url }}" target="_blank">{{ str_limit($user->url, 30) }}</a>
                                         </div>
                                     </div>
                                 @endif                               
@@ -54,9 +54,9 @@
     @else
         <div class="sixteen wide column">
             <div class="ui sticky user-signup">
-                <a href="/register" class="ui fluid teal button">Sign up</a>
+                <a href="/register" class="ui fluid teal button">Register</a>
                 </br>
-                <a href="/login" class="ui fluid teal basic button">Log-in</a>
+                <a href="/login" class="ui fluid teal basic button">Sign-in</a>
             </div>
         </div>        
     @endif

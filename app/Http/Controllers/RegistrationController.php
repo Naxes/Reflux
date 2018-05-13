@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
 use Hash;
+use App\User;
 
 class RegistrationController extends Controller
 {
@@ -23,9 +23,9 @@ class RegistrationController extends Controller
         $this->validate(
             request(),
             [
-                'name'      => 'required|unique:users',
+                'name'      => 'required|unique:users|max:20|regex:/^(?!.*[-+_!@#$%^&*.,?])(?!.*[\s]).+$/',
                 'email'     => 'required|unique:users|email',
-                'password'  => 'required|confirmed|min:8|regex:/^[a-zA-Z]+[0-9]+$/'
+                'password'  => 'required|confirmed|min:8|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[-+_!@#$%^&*.,?]).+$/'
             ]
         );
 

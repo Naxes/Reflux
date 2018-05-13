@@ -4,6 +4,7 @@ require('./modules/dropdown.js');
 require('./modules/popup.js');
 require('./modules/preloader.js');
 require('./modules/theme.js');
+require('./modules/validate.js');
 require('./modules/tinymce.js');
 
 // window.Vue = require('vue');

@@ -5,9 +5,9 @@
         <div class="row">
             <div class="four wide column"></div>
             <div class="four wide column">
-                <h1 class="ui header red centered">
-                    <img class="ui centered tiny image" src="{{ asset('img/Reflux Icon.png') }}" alt="Reflux Icon" style="margin: 0 0 5px 0;">Reflux                    
-                </h1>                
+                <a href="/">
+                    <img src="/img/Reflux Login Icon.png" alt="Login Icon" class="ui centered tiny image">              
+                </a>
                 <div class="ui divider"></div>  
                 <h2 class="ui header teal centered">Log-in to your account</h2>
                 <div class="ui segment raised">

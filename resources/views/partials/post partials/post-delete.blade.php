@@ -1,8 +1,7 @@
 <div class="ui mini modal delete_modal {{ $post->id }}">
     <div class="header">Danger Zone</div>
     <div class="content">
-        <p>This action will permanently delete the <b>{{ $post->title }}</b> post.</p>
-        <span>Type the name of the post to confirm.</span>
+        <p>This action will permanently delete the <b>{{ $post->title }}</b> post. Type the name of the post to confirm.</p>        
     </div>
     <div class="actions">                    
         <form class="ui form" id="delete_form" action="/posts/{{ $post->id }}" method="post">

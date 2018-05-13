@@ -6,6 +6,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+::selection {
+background: $grey;
+}
+
 /*
 |--------------------------------------------------------------------------
 | Theme
@@ -70,7 +74,7 @@ body {
     
     @keyframes leftload {
       from { transform: translateX(0) }
-      to { transform: translateX(-100%); }
+      to { transform: translateX(-100%) }
     }
   }
 
@@ -80,9 +84,9 @@ body {
 
     @keyframes rightload {
       from { transform: translateX(0) }
-      to { transform: translateX(100%); }
+      to { transform: translateX(100%) }
     }
-  }
+  } 
 
   /* Animated spinner */
   #spinner {
@@ -110,13 +114,30 @@ body {
 */
 
 /* Secondary content */
-.secondary {
-  color: $light-grey;  
+%secondary {
+  color: $light-grey; 
 }
 
 /* Tertiary content */
-.tertiary {
+%tertiary {
   font-size: $small;
+}
+
+.secondary {
+  @extend %secondary; 
+}
+
+.tertiary {
+  @extend %secondary;
+}
+
+.primary-link {
+  color: $black
+}
+
+.primary-link:hover {
+  @extend .primary-link;
+  text-decoration: underline;
 }
 
 /*

@@ -10,7 +10,7 @@
             @csrf
             
             <div class="ui raised clearing segment">
-                <h3 class="ui header">{{ $post->title }}</h3>                                                     
+                <h3 class="ui header" style="padding-top: 5px;">{{ $post->title }}</h3>                                                                 
                 <div class="field">                        
                     <div class="ui input">                                      
                         <textarea class="mce_field" name="body" placeholder="Text">

@@ -5,7 +5,7 @@
         <div class="sixteen wide computer sixteen wide mobile column" style="padding-top: .5rem;">
             <div class="ui segments">
                 <div class="ui horizontal segments posts">
-                    @include('partials.post-details')                   
+                    @include('partials.post partials.post-details')                   
                 </div>
                 
                 {{-- Bottom segment --}}
@@ -16,7 +16,7 @@
                 </div>                
 
                 {{--  Delete modal  --}}            
-                @include('partials.delete-post')
+                @include('partials.post partials.post-delete')
 
                 {{--  Comments field  --}}
                 <div class="ui clearing segment">                    
@@ -26,7 +26,7 @@
                                                             
                             <div class="field">                        
                                 <div class="ui input">                                      
-                                    <textarea name="comment" id="body"></textarea>
+                                    <textarea name="comment" id="body" placeholder="What are your thoughts?"></textarea>
                                 </div>                                                        
                             </div>                                                                                    
                             <button class="ui blue button right floated" type="submit">Save</button>                            
@@ -44,6 +44,6 @@
         </div>
 
         {{--  Comments section --}}
-        @include('partials.comments')       
+        @include('partials.comments')              
     </div>             
 @endsection

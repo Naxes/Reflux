@@ -29,23 +29,23 @@
         </div>
     </div>    
 </div>
-
+    
 {{--  Right segment  --}}
 <div class="ui segment right-segment dark-test">
     <div class="ui grid">
         
         {{--  Title  --}}
-        <div class="eight wide column">
+        <div class="ten wide column">
             <a class="post-title" href="/posts/{{ $post->id }}" style="position: relative; top: 10px;">{{ str_limit($post->title, 35) }}</a>                                                                                                            
         </div>            
 
         {{--  Edit/Remove button  --}}
-        <div class="eight wide column">                                        
+        <div class="six wide column">                                        
             @if ($post->user_id == auth()->id())                                              
-                <a class="ui icon inverted red button trash_btn delete_{{ $post->id }}" style="float:right;">
+                <a class="ui icon inverted red button trash_btn delete_small_{{ $post->id }}" style="float:right;">
                     <i class="trash icon"></i>
                 </a>
-                <a href="/posts/edit/{{ $post->id }}" class="ui icon blue button" style="float:right;">
+                <a href="/posts/edit/{{ $post->id }}" class="ui icon blue edit_btn button" style="float:right;">
                     <i class="edit icon"></i>
                 </a>                                                     
             @endif                                    

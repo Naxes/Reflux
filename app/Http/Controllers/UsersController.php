@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use Storage;
 use App\User;
 use App\Post;
+use App\Comment;
 use App\Vote;
 
 class UsersController extends Controller
@@ -26,18 +28,24 @@ class UsersController extends Controller
                     $query->where('user_id', $user->id);
                 })->paginate(6);
                 break;
+            case 'comments':
+                $comments = Comment::with('post')->where('user_id', $user->id)->paginate(6);
+                break;
             default;
         }
 
-        return view('profiles.show', compact('user', 'posts'));
+        return view('profiles.show', compact('user', 'posts', 'comments'));
     }
 
     public function edit(User $user)
-    {        
+    {
+        $countries = Storage::disk('local')->get('countries.json');
+        $countries = json_decode($countries, true);
+
         if ($user->id != auth()->id()) {
             return redirect()->back();
         }
-        return view('profiles.edit', compact('user'));       
+        return view('profiles.edit', compact('user', 'countries'));       
     }
 
     public function update(User $user)
@@ -45,10 +53,10 @@ class UsersController extends Controller
         $this->validate(
             request(),
             [
-                'name'     => 'required|unique:users,name,' . auth()->id(),
+                'name'     => 'required|max:20|regex:/^(?!.*[-+_!@#$%^&*.,?])(?!.*[\s]).+$/|unique:users,name,' . auth()->id(),
                 'email'    => 'required|unique:users,email,' . auth()->id(),
                 'bio'      => 'max:80',
-                'location' => 'max:25' 
+                'url'      => 'nullable|regex:/^(?!https)(?!http)(?!.*[-+_!@#$%^&*,?])(?=.*[.])(?!.*[.]$).+$/'
             ]
         );
 

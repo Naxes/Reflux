@@ -4,11 +4,12 @@
     </a>
     <div class="right menu">
         <div class="ui right aligned category search item">
-            <div class="ui transparent icon input">
-                <input class="prompt" type="text" placeholder="Search">
-                <i class="search link icon"></i>
-            </div>
-            <div class="results"></div>
+            <form action="/" method="get" class="ui form">
+                <div class="ui transparent icon input">                
+                    <input class="prompt search-input" name="search" type="text" placeholder="Search">
+                    <i class="search link icon"></i>
+                </div>
+            </form>            
         </div>                                    
         @if (Auth::check())
             <a href="/posts/create" class="ui icon item">

@@ -4,18 +4,27 @@
 |--------------------------------------------------------------------------
 */
 
-/** 
- * Navigation dropdowns (i.e. links | sorting)
-*/
+/* Navigation dropdown */
 $('.nav-dropdown')
   .dropdown({
     action: 'select'
   })
 ;
 
-/**
- * Tag selection dropdown
- */
+/* Sort dropdown */
+$('.ui.dropdown.sort-dropdown')
+  .dropdown({
+    action: function (text, value, element) {
+      element.click()
+    }
+  })
+
+/* Tag selection dropdown */
 $('#tags')
+  .dropdown()
+;
+
+/* Location dropdown */
+$('#location')
   .dropdown()
 ;

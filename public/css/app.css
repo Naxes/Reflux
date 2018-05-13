@@ -15,6 +15,14 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+::-moz-selection {
+  background: #ECF0F1;
+}
+
+::selection {
+  background: #ECF0F1;
+}
+
 /*
 |--------------------------------------------------------------------------
 | Theme
@@ -188,14 +196,20 @@ body {
 
 /* Secondary content */
 
-.secondary {
+.secondary,
+.tertiary {
   color: #B1B4B5;
 }
 
 /* Tertiary content */
 
-.tertiary {
-  font-size: 0.8rem;
+.primary-link,
+.primary-link:hover {
+  color: #1B1C1D;
+}
+
+.primary-link:hover {
+  text-decoration: underline;
 }
 
 /*

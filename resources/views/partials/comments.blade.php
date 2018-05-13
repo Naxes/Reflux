@@ -4,7 +4,7 @@
         <div class="ui divider"></div>
         <div class="ui segment">
             <div class="ui grid" id="comments_section" style="padding: 10px;">
-                <div class="eight wide computer sixteen wide mobile column">
+                <div class="sixteen wide column">
                     <div class="ui comments">            
                         @foreach ($comments as $comment)
                             <div class="comment">
@@ -30,7 +30,7 @@
                                         <div class="field">                        
                                             <div class="ui input">
                                                 <input type="hidden" name="parent" value="{{ $comment->id }}">                                      
-                                                <textarea name="comment" id="body"></textarea>
+                                                <textarea name="comment" id="body" placeholder="What are your thoughts?"></textarea>
                                             </div>                                                        
                                         </div>                                                                                    
                                         <button class="ui blue button right floated" type="submit">Add Reply</button>
@@ -67,7 +67,7 @@
                                                         <div class="field">                        
                                                             <div class="ui input">
                                                                 <input type="hidden" name="parent" value="{{ $reply->parent_id }}">
-                                                                <textarea name="comment" id="body"></textarea>
+                                                                <textarea name="comment" id="body" placeholder="What are your thoughts?"></textarea>
                                                             </div>                                                        
                                                         </div>                                                                                    
                                                         <button class="ui blue button right floated" type="submit">Add Reply</button>
@@ -85,16 +85,21 @@
                                         @endif                            
                                     </div> 
                                 @endif                                                                      
-                            </div>
+                            </div>                            
                             <script>
                                 $('.reply_button_{{ $comment->id }}').click(function(){
                                     $('.reply_form_{{ $comment->id }}').toggle();
                                 });
                             </script>
                         @endforeach                                              
-                    </div> 
+                    </div>                   
                 </div>                                                               
             </div>            
+        </div>
+
+        {{--  Comments Pagination  --}}
+        <div class="sixteen wide column">
+            {{ $comments->appends(request()->input())->links('partials.paginate') }}
         </div>
     </div>           
 @endif

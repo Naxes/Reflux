@@ -68,7 +68,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(1);
-module.exports = __webpack_require__(8);
+module.exports = __webpack_require__(9);
 
 
 /***/ }),
@@ -82,6 +82,7 @@ __webpack_require__(4);
 __webpack_require__(5);
 __webpack_require__(6);
 __webpack_require__(7);
+__webpack_require__(8);
 
 // window.Vue = require('vue');
 
@@ -107,9 +108,7 @@ __webpack_require__(7);
 |--------------------------------------------------------------------------
 */
 
-/**
- * Like/Unlike
- */
+/* General Like/Unlike */
 $('.vote').click(function (e) {
     e.preventDefault();
     e.stopPropagation();
@@ -141,6 +140,63 @@ $('.vote').click(function (e) {
     });
 });
 
+/* Profile Unlike */
+$('.unvote').click(function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    var form = $(this.form);
+    var formData = form.serializeArray(),
+        formObj = {};
+
+    /* Form data */
+    $(formData).each(function (i, val) {
+        formObj[val.name] = val.value;
+    });
+
+    $.ajax({
+        type: 'POST',
+        url: form.attr('action'),
+        data: formData,
+
+        /* Toggle button color */
+        success: function (data) {
+            $('.post_' + formObj['postid']).remove();
+        }.bind(this),
+
+        /* Redirect to login if not authenticated */
+        error: function error() {
+            window.location.href = "/login";
+        }
+    });
+});
+
+/* Profile Delete */
+$('.delete_small').click(function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    var form = $(this.form);
+    var formData = form.serializeArray(),
+        formObj = {};
+
+    /* Form data */
+    $(formData).each(function (i, val) {
+        formObj[val.name] = val.value;
+    });
+
+    $.ajax({
+        type: 'POST',
+        url: form.attr('action'),
+        data: formData,
+
+        success: function success(data) {
+            $('.post_' + formObj['postid']).remove();
+            $('.ui.mini.modal').modal('hide');
+        }
+    });
+});
+
 /***/ }),
 /* 3 */
 /***/ (function(module, exports) {
@@ -151,23 +207,44 @@ $('.vote').click(function (e) {
 |--------------------------------------------------------------------------
 */
 
-/** 
- * Navigation dropdowns (i.e. links | sorting)
-*/
+/* Navigation dropdown */
 $('.nav-dropdown').dropdown({
   action: 'select'
 });
 
-/**
- * Tag selection dropdown
- */
+/* Sort dropdown */
+$('.ui.dropdown.sort-dropdown').dropdown({
+  action: function action(text, value, element) {
+    element.click();
+  }
+});
+
+/* Tag selection dropdown */
 $('#tags').dropdown();
+
+/* Location dropdown */
+$('#location').dropdown();
 
 /***/ }),
 /* 4 */
 /***/ (function(module, exports) {
 
+/*
+|--------------------------------------------------------------------------
+| Popups
+|--------------------------------------------------------------------------
+*/
 
+/* Delete Popup */
+$('.trash_btn').popup({
+  position: 'right center',
+  content: 'Remove Post'
+});
+
+$('.edit_btn').popup({
+  position: 'left center',
+  content: 'Edit Post'
+});
 
 /***/ }),
 /* 5 */
@@ -202,19 +279,27 @@ $(window).on('load', function () {
 function checkTheme(theme) {
     if (theme == 1) {
         $('body').addClass('night-body');
+        $('.search-input').addClass('night-font');
+        $('.primary-link').addClass('night-font');
         $('#test_btn').attr('checked', 'checked');
-        $('.ui').not('.ui.button, .ui.card').addClass('inverted');
+        $('.ui').not('.ui.button, .ui.card, .ui.search').addClass('inverted');
         $('.visible.content, .ui.card').addClass('night-bg');
         $('.ui.card').addClass('night-shadow').children('.content').addClass('night-font').children().addClass('night-font');
         $('.comment').children('.content').children().addClass('night-font').children().addClass('night-font');
         $('.post-title').addClass('night-title');
+        $('.trash_btn').removeAttr('data-variation');
+        $('.edit_btn').removeAttr('data-variation');
     } else {
         $('body').removeClass('night-body');
-        $('.ui').not('.ui.button, .ui.card').removeClass('inverted');
+        $('.search-input').removeClass('night-font');
+        $('.primary-link').removeClass('night-font');
+        $('.ui').not('.ui.button, .ui.card, .ui.search').removeClass('inverted');
         $('.visible.content, #leftload, #rightload, .ui.card').removeClass('night-bg');
         $('.ui.card').removeClass('night-shadow').children('.content').removeClass('night-font').children().removeClass('night-font');
         $('.comment').children('.content').children().removeClass('night-font').children().removeClass('night-font');
         $('.post-title').removeClass('night-title');
+        $('.trash_btn').attr('data-variation', 'inverted');
+        $('.edit_btn').attr('data-variation', 'inverted');
     }
 }
 
@@ -232,6 +317,89 @@ $(document).ready(function () {
 
 /***/ }),
 /* 7 */
+/***/ (function(module, exports) {
+
+var _ref;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+/*
+|--------------------------------------------------------------------------
+| Validation
+|--------------------------------------------------------------------------
+*/
+
+/* Post Form */
+$('.create-post-form').form({
+  fields: {
+    title: {
+      identifier: 'title',
+      rules: [{
+        type: 'empty',
+        prompt: 'Please enter a title'
+      }, {
+        type: 'maxLength[70]',
+        prompt: 'Title must be <b><u>70 characters</u></b> or <b><u>less</u></b>'
+      }, {
+        type: 'regExp[^(?!.*[-+_@#$%^&£*.,]).+$]',
+        prompt: 'Title <b><u>cannot</u></b> contain any <b><u>special characters</u></b>'
+      }]
+    },
+    tags: {
+      identifier: 'tags[]',
+      rules: [{
+        type: 'empty',
+        prompt: 'Post must contain <b><u>at least 1 tag</u></b>'
+      }, {
+        type: 'maxCount[5]',
+        prompt: 'Post must contain <b><u>5 tags</u></b> or <b><u>less</u></b>'
+      }]
+    }
+  }
+});
+
+/* Settings Form */
+$('.settings-form').form({
+  fields: {
+    name: {
+      identifier: 'name',
+      rules: [{
+        type: 'empty',
+        prompt: 'Please enter a username'
+      }, {
+        type: 'maxLength[20]',
+        prompt: 'Name must be less than 20 characters'
+      }, {
+        type: 'regExp[^(?!.*[-+_!@#$%^&£*.,?])(?!.*\\\s).+$]',
+        prompt: 'Userame must be <b><u>one word</u></b> and contain <b><u>no special characters</u></b> or <b><u>spaces</u></b>'
+      }]
+    },
+    email: {
+      identifier: 'email',
+      rules: [(_ref = {
+        type: 'empty'
+      }, _defineProperty(_ref, 'type', 'email'), _defineProperty(_ref, 'prompt', 'Please enter a valid e-mail'), _ref)]
+    },
+    bio: {
+      identifier: 'bio',
+      rules: [{
+        type: 'maxLength[80]',
+        prompt: 'Bio must be <b><u>80 characters</u></b> or <b><u>less</u></b>'
+      }]
+    },
+    url: {
+      identifier: 'url',
+      optional: 'true',
+      rules: [{
+        type: 'regExp[^(?!https)(?!http)(?!.*[-+_!@#$%^&*,?])(?=.*[.])(?!.*[.]$).+$]',
+        prompt: 'Please enter a valid URL: <b><u>www.example.com</u></b> | <b><u>example.com</u></b>'
+      }]
+    }
+  }
+});
+
+/***/ }),
+/* 8 */
 /***/ (function(module, exports) {
 
 /*
@@ -252,7 +420,7 @@ tinymce.init({
 });
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
