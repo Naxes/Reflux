@@ -4,7 +4,7 @@ Reflux is a developer-oriented web application for sharing ideas, discussing cod
 
 ## Getting Started
 
-The following instructions outline the structure of the project for marking purposes, specifically pertaining to the locations of code in relation to the projects defined functional and non-functional requirements, as well as its implementations.
+The following instructions outline the structure of the project for marking purposes, specifically pertaining to the locations of code in relation to the projects defined functional and non-functional requirements, as well as other miscellaneous implementations.
 
 ### Prerequisites
 
