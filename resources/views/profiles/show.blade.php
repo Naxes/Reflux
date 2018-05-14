@@ -35,7 +35,7 @@
             {{-- Comments --}}
             @if ($comments->count())
                 @foreach ($comments as $comment)
-                    <div class="eight wide computer only sixteen mobile column">
+                    <div class="eight wide computer only sixteen wide mobile column">
                         <div class="ui segments">
                             <div class="ui horizontal segments posts">
                                 @include('partials.comments-profile')
