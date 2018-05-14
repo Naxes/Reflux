@@ -18,7 +18,7 @@
 
         {{--  Like button  --}}
         <div class="hidden content">        
-            <form action="/vote/{{ $post->id }}/" method="post" postid="{{ $post->id }}">
+            <form action="/vote/{{ $post->id }}" method="post" postid="{{ $post->id }}">
                 @csrf
                 
                 <input type="hidden" name="postid" value="{{ $post->id }}">    

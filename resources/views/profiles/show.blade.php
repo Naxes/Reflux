@@ -118,7 +118,7 @@
                             @break                                
                         @default
                             <img src="/img/Reflux PostIt Icon.png" alt="No Posts Icon" class="ui tiny image centered">                    
-                            <h2 class="ui header centered">{{ Auth::user() == $user ? "You haven't posted anything!" : "$user->name hasn't liked anything!" }}</h2>
+                            <h2 class="ui header centered">{{ Auth::user() == $user ? "You haven't posted anything!" : "$user->name hasn't posted anything!" }}</h2>
                     @endswitch                                         
                 </div>            
             @endif

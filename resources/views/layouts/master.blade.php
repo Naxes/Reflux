@@ -46,7 +46,7 @@
         </div>
     </div>
         
-    <script src="/js/prism.js"></script>    
+    <script src="/js/prism.js"></script>
     <script src="/js/app.js"></script>  
 </body>
 </html>
